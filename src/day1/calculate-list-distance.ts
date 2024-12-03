@@ -1,9 +1,8 @@
-import fs from 'fs';
-import {parse} from 'csv-parse/sync';
+import parseInputFile from '../utils/parse-input-file';
 
 const calculateListDistance = (prefix : string) => {
-    const file = fs.readFileSync(`src/day1/${prefix}-data.txt`)
-    const records = parse(file, {delimiter: '   '})
+    const records = parseInputFile(`src/day1/${prefix}-data.txt`, '   ')
+
     let list1 : string[] = [];
     let list2 : string[] = [];
     records.forEach(record => {
